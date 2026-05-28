@@ -10,7 +10,6 @@ const CATEGORIES = [
     "JavaScript",
     "Vue3",
     "工具",
-    "工作",
     "觀念",
     "操作說明",
 ];
