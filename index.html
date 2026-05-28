@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>速查表</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div v-if="loading" class="loading-screen">
+      <div class="ttl">載入中...</div>
+      <div class="msg">{{ loadingMsg }}</div>
+    </div>
+
+    <div v-else-if="loadError" class="loading-screen error">
+      <div class="ttl">⚠ 資料載入失敗</div>
+      <div class="msg">{{ loadError }}</div>
+      <div class="hint">
+        在 VSCode 安裝「Live Server」擴充套件 → 右鍵 index.html → Open with
+        Live Server
+      </div>
+    </div>
+
+    <div v-else class="container">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-3)">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <input ref="searchInput" type="text" v-model="searchKeyword" placeholder="搜尋條目、標籤、內容..." />
+          <button v-if="searchKeyword" class="clear-search" @click="searchKeyword = ''" aria-label="清除">
+            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="6" />
+            </svg>
+          </button>
+          <span class="kbd">Ctrl+K</span>
+        </div>
+        <button class="btn-primary" @click="openCreate()">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+          </svg>
+          新增
+        </button>
+        <button class="btn-icon" @click="showSettings = true" aria-label="設定">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- 搜尋模式：跨分類，隱藏主分類列 -->
+      <div v-if="isSearching" class="search-mode-banner">
+        <span><span class="ttl">跨全部分類搜尋中</span> · 「{{ searchKeyword }}」· 命中 {{ filteredCards.length }} 張</span>
+        <span class="link" @click="searchKeyword = ''">回到 {{ activeCategory }} 分類</span>
+      </div>
+
+      <!-- 正常模式：顯示主分類列 -->
+      <div v-else class="categories">
+        <div class="cat-group">
+          <span v-for="cat in CATEGORIES" :key="cat" class="cat" :class="{ active: activeCategory === cat }"
+            @click="selectCategory(cat)">
+            {{ cat }} ({{ cardCounts[cat] || 0 }})
+          </span>
+        </div>
+        <span v-if="activeSubcategory" class="divider"></span>
+        <span v-if="activeSubcategory" class="sub-pill" @click="showSubModal = true">
+          <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+          </svg>
+          {{ activeSubcategory }}
+          <span class="x" @click.stop="activeSubcategory = null">
+            <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="6" />
+            </svg>
+          </span>
+        </span>
+      </div>
+
+      <div class="grid">
+        <div v-if="filteredCards.length === 0" class="empty-state">
+          <div class="big">沒有符合的卡片</div>
+          <div v-if="searchKeyword">
+            試試其他關鍵字，或<span class="link" @click="searchKeyword = ''">清除搜尋</span>
+          </div>
+          <div v-else>這個分類目前沒有卡片</div>
+        </div>
+
+        <div v-for="card in filteredCards" :key="card.id" class="card" :class="{ 'note-card': card.type === 'note' }"
+          @click="openModal(card)">
+          <div class="card-head">
+            <div class="card-titlewrap">
+              <svg v-if="card.type === 'note'" viewBox="0 0 24 24" width="12" height="12" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="color: var(--amber); flex-shrink: 0;">
+                <path
+                  d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                <path d="M9 18h6" />
+                <path d="M10 22h4" />
+              </svg>
+              <span class="card-title" v-html="highlightText(card.title)"></span>
+              <span class="type-tag" :class="'type-' + card.type">{{ card.type }}</span>
+              <span v-if="isSearching" class="source-tag">{{ card.category }}</span>
+            </div>
+
+
+            <div class="card-actions" @click.stop>
+              <button v-if="card.type !== 'note' && card.type !== 'table'" class="icon-btn"
+                :class="{ copied: copiedId === card.id + '-all' }" @click="copyAll(card)" aria-label="複製">
+                <svg v-if="copiedId !== card.id + '-all'" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </button>
+              <button class="icon-btn" @click.stop="openEdit(card)" aria-label="編輯">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <template v-if="card.type === 'code'">
+            <pre class="code-pre" v-html="previewCode(card)"></pre>
+            <div v-if="codeLineCount(card) > card.previewRows" class="more-hint">
+              + {{ codeLineCount(card) - card.previewRows }} 行 · 點擊展開 ↓
+            </div>
+          </template>
+
+          <template v-if="card.type === 'lines'">
+            <div class="lines-wrap">
+              <div v-for="(line, idx) in card.content.slice(0, card.previewRows)" :key="idx">
+                <span class="line-content" v-html="highlightText(line)"></span>
+                <button class="row-btn" :class="{ copied: copiedId === card.id + '-line-' + idx }"
+                  @click.stop="copyLine(card, line, 'line-' + idx)" aria-label="複製此行">
+                  <svg v-if="copiedId !== card.id + '-line-' + idx" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div v-if="card.content.length > card.previewRows" class="more-hint">
+              + {{ card.content.length - card.previewRows }} 行 · 點擊展開 ↓
+            </div>
+          </template>
+
+          <template v-if="card.type === 'table'">
+            <div class="table-wrap">
+              <div v-for="(row, idx) in card.content.slice(0, card.previewRows)" :key="idx">
+                <span class="table-key" v-html="highlightText(row.key)"></span>
+                <span class="table-desc" v-html="highlightText(row.desc)"></span>
+                <button class="row-btn" :class="{ copied: copiedId === card.id + '-row-' + idx }"
+                  @click.stop="copyLine(card, row.key, 'row-' + idx)" aria-label="複製">
+                  <svg v-if="copiedId !== card.id + '-row-' + idx" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div v-if="card.content.length > card.previewRows" class="more-hint">
+              + {{ card.content.length - card.previewRows }} 行 · 點擊展開 ↓
+            </div>
+          </template>
+
+          <template v-if="card.type === 'sections'">
+            <div class="sections-list">
+              <div v-for="(sec, idx) in card.content" :key="idx">
+                <span>
+                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                  <span v-html="highlightText(sec.title)"></span>
+                </span>
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="color: #b4b2a9">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </div>
+            </div>
+          </template>
+
+          <template v-if="card.type === 'note'">
+            <div class="note-body">
+              <div v-for="(p, idx) in card.content.points.slice(0, card.previewRows)" :key="idx" class="point"
+                v-html="'• ' + highlightText(p)"></div>
+              <div v-if="card.content.warning" class="note-warning">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                  <path d="M12 9v4" />
+                  <path d="M12 17h.01" />
+                </svg>
+                <span v-html="highlightText(card.content.warning)"></span>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <div class="statusbar">
+        <span v-if="isSearching">搜尋「{{ searchKeyword }}」· 命中 {{ filteredCards.length }} / {{ allCards.length }}
+          張（全分類）</span>
+        <span v-else>共 {{ filteredCards.length }} / {{ activeCategoryCards.length }} 張 · {{ activeCategory }}{{
+          activeSubcategory ? ' / ' + activeSubcategory : '' }}</span>
+        <span>總計 {{ allCards.length }} 張 · 最後更新 {{ lastSavedAt }}</span>
+      </div>
+    </div>
+
+    <button v-if="!loading && !loadError" class="fab" @click="showSubModal = true" aria-label="子分類">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <line x1="9" y1="3" x2="9" y2="21" />
+      </svg>
+    </button>
+
+    <div v-if="activeCard" class="modal-mask" @click.self="activeCard = null">
+      <div class="modal">
+        <div class="modal-head">
+          <div class="modal-title">
+            <span>{{ activeCard.title }}</span>
+            <span class="type-tag" :class="'type-' + activeCard.type">{{ activeCard.type }}</span>
+          </div>
+          <div class="modal-actions">
+            <button v-if="activeCard.type !== 'note' && activeCard.type !== 'table'" class="icon-btn"
+              :class="{ copied: copiedId === activeCard.id + '-modal' }" @click="copyAll(activeCard, 'modal')"
+              aria-label="複製">
+              <svg v-if="copiedId !== activeCard.id + '-modal'" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </button>
+            <button class="icon-btn" @click="openEdit(activeCard)" aria-label="編輯">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+              </svg>
+            </button>
+            <button class="icon-btn danger" @click="confirmDelete(activeCard)" aria-label="刪除">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="3 6 5 6 21 6" />
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+            </button>
+            <button class="icon-btn" @click="activeCard = null" aria-label="關閉">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <pre v-if="activeCard.type === 'code'" class="code-pre">{{ activeCard.content }}</pre>
+
+          <div v-if="activeCard.type === 'lines'" class="lines-wrap">
+            <div v-for="(line, idx) in activeCard.content" :key="idx">
+              <span class="line-content">{{ line }}</span>
+              <button class="row-btn" :class="{ copied: copiedId === activeCard.id + '-mline-' + idx }"
+                @click="copyLine(activeCard, line, 'mline-' + idx)" aria-label="複製此行">
+                <svg v-if="copiedId !== activeCard.id + '-mline-' + idx" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div v-if="activeCard.type === 'table'" class="table-wrap">
+            <div v-for="(row, idx) in activeCard.content" :key="idx">
+              <span class="table-key">{{ row.key }}</span>
+              <span class="table-desc">{{ row.desc }}</span>
+              <button class="row-btn" :class="{ copied: copiedId === activeCard.id + '-mrow-' + idx }"
+                @click="copyLine(activeCard, row.key, 'mrow-' + idx)" aria-label="複製">
+                <svg v-if="copiedId !== activeCard.id + '-mrow-' + idx" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <template v-if="activeCard.type === 'sections'">
+            <div v-for="(sec, idx) in activeCard.content" :key="idx">
+              <div class="modal-section-head" @click="toggleSection(idx)">
+                <span>
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" style="
+                        vertical-align: -1px;
+                        margin-right: 4px;
+                        transition: transform 0.2s;
+                      " :style="{ transform: isCollapsed(idx) ? 'rotate(0deg)' : 'rotate(90deg)' }">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                  {{ sec.title }}
+                </span>
+                <button class="row-btn" :class="{ copied: copiedId === activeCard.id + '-sec-' + idx }"
+                  @click.stop="copyLine(activeCard, sec.content, 'sec-' + idx)" aria-label="複製此區塊">
+                  <svg v-if="copiedId !== activeCard.id + '-sec-' + idx" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
+              </div>
+              <pre class="code-pre modal-section-content" :class="{ collapsed: isCollapsed(idx) }">
+{{ sec.content }}</pre>
+            </div>
+          </template>
+
+          <div v-if="activeCard.type === 'note'" class="note-body">
+            <div v-for="(p, idx) in activeCard.content.points" :key="idx" class="point">
+              • {{ p }}
+            </div>
+            <div v-if="activeCard.content.warning" class="note-warning">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px">
+                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                <path d="M12 9v4" />
+                <path d="M12 17h.01" />
+              </svg>
+              <span>{{ activeCard.content.warning }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="activeCard.tags && activeCard.tags.length" class="modal-tags">
+          <span v-for="tag in activeCard.tags" :key="tag" class="tag" :class="{ 'todo-tag': tag === 'todo' }">{{ tag
+            }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="showSubModal" class="modal-mask" @click.self="showSubModal = false">
+      <div class="sub-modal">
+        <div class="sub-modal-head">
+          <span>{{ activeCategory }} 子分類</span>
+          <button class="icon-btn" @click="showSubModal = false" aria-label="關閉">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="6" />
+            </svg>
+          </button>
+        </div>
+        <div class="sub-list">
+          <div class="sub-item" :class="{ active: !activeSubcategory }" @click="selectSub(null)">
+            <span>全部</span>
+            <span class="count">{{ activeCategoryRealCount }}</span>
+          </div>
+          <div v-for="sub in subcategories" :key="sub.name" class="sub-item"
+            :class="{ active: activeSubcategory === sub.name }" @click="selectSub(sub.name)">
+            <span>{{ sub.name }}</span>
+            <span class="count">{{ sub.count }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="deletingCard" class="modal-mask" @click.self="deletingCard = null">
+      <div class="confirm-modal">
+        <div class="ttl">確定要刪除嗎？</div>
+        <div class="msg">
+          「{{ deletingCard.title
+          }}」將從你的速查表中移除，這個動作無法復原（除非有匯出備份）。
+        </div>
+        <div class="actions">
+          <button class="btn-cancel" @click="deletingCard = null">
+            取消
+          </button>
+          <button class="btn-danger" @click="doDelete">刪除</button>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="showSettings" class="modal-mask" @click.self="showSettings = false">
+      <div class="settings-modal">
+        <div class="ttl">
+          <span>設定</span>
+          <button class="icon-btn" @click="showSettings = false" aria-label="關閉">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="6" />
+            </svg>
+          </button>
+        </div>
+        <div class="settings-list">
+          <div class="setting-item" @click="doExport">
+            <div class="label">匯出 data.json（更新資料）</div>
+            <div class="desc">
+              下載成 data.json，放進 data/update/ 覆蓋舊檔即更新資料來源
+            </div>
+          </div>
+          <div class="setting-item" @click="triggerImport">
+            <div class="label">匯入 JSON</div>
+            <div class="desc">從備份檔或其他來源載入卡片資料</div>
+          </div>
+          <input ref="fileInput" type="file" accept=".json,application/json" style="display: none"
+            @change="onFileSelected" />
+          <div class="setting-item danger" @click="confirmReset">
+            <div class="label">重置為 data.json</div>
+            <div class="desc">
+              清空 localStorage 變更，重新從 data/update/data.json 載入
+            </div>
+          </div>
+          <div class="setting-item danger" @click="confirmClearAll">
+            <div class="label">清除全部資料</div>
+            <div class="desc">
+              刪除 localStorage 所有卡片（重整後會從 JSON 重新載入）
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="importConflict" class="modal-mask" @click.self="cancelImport">
+      <div class="conflict-modal">
+        <div class="ttl">發現重複的卡片</div>
+        <div class="msg">
+          匯入的 {{ importConflict.totalIn }} 張卡片中，有
+          <b>{{ importConflict.duplicates.length }} 張</b>跟現有資料的 ID
+          重複。請選擇處理方式：
+        </div>
+        <div class="conflict-options">
+          <div class="conflict-option" :class="{ selected: conflictChoice === 'overwrite' }"
+            @click="conflictChoice = 'overwrite'">
+            <div class="opt-label">覆蓋</div>
+            <div class="opt-desc">
+              用匯入的版本取代現有的（你目前的修改會被蓋掉）
+            </div>
+          </div>
+          <div class="conflict-option" :class="{ selected: conflictChoice === 'skip' }"
+            @click="conflictChoice = 'skip'">
+            <div class="opt-label">跳過</div>
+            <div class="opt-desc">保留你目前的版本，匯入時忽略這些重複的</div>
+          </div>
+          <div class="conflict-option" :class="{ selected: conflictChoice === 'asNew' }"
+            @click="conflictChoice = 'asNew'">
+            <div class="opt-label">視為新卡</div>
+            <div class="opt-desc">
+              給匯入的卡片重新分配
+              ID（兩邊都會留下，可能會看到看起來一樣的卡）
+            </div>
+          </div>
+        </div>
+        <div class="conflict-actions">
+          <button class="btn-cancel" @click="cancelImport">取消匯入</button>
+          <button class="btn-primary" :disabled="!conflictChoice" @click="applyImport">
+            套用
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="importReport" class="modal-mask" @click.self="importReport = null">
+      <div class="report-modal">
+        <div class="report-head">
+          <span>匯入完成</span>
+          <button class="icon-btn" @click="importReport = null" aria-label="關閉">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="6" />
+            </svg>
+          </button>
+        </div>
+        <div class="report-summary">
+          <div class="stat">
+            <span class="num added">{{ importReport.added.length }}</span>
+            <span class="label">新增</span>
+          </div>
+          <div class="stat">
+            <span class="num overwritten">{{ importReport.overwritten.length }}</span>
+            <span class="label">覆蓋</span>
+          </div>
+          <div class="stat">
+            <span class="num skipped">{{ importReport.skipped.length }}</span>
+            <span class="label">跳過</span>
+          </div>
+        </div>
+        <div v-if="importReport.added.length" class="report-section">
+          <div class="report-section-head" @click="reportCollapsed.added = !reportCollapsed.added">
+            <span>新增的卡片 ({{ importReport.added.length }})</span>
+            <span>{{ reportCollapsed.added ? '展開' : '收起' }}</span>
+          </div>
+          <div class="report-section-body" :class="{ collapsed: reportCollapsed.added }">
+            <div v-for="(c, idx) in importReport.added" :key="idx" class="report-item">
+              <span>{{ c.title }}</span>
+              <span class="item-cat">{{ c.category }} / {{ c.subcategory }}</span>
+            </div>
+          </div>
+        </div>
+        <div v-if="importReport.overwritten.length" class="report-section">
+          <div class="report-section-head" @click="reportCollapsed.overwritten = !reportCollapsed.overwritten">
+            <span>覆蓋的卡片 ({{ importReport.overwritten.length }})</span>
+            <span>{{ reportCollapsed.overwritten ? '展開' : '收起' }}</span>
+          </div>
+          <div class="report-section-body" :class="{ collapsed: reportCollapsed.overwritten }">
+            <div v-for="(c, idx) in importReport.overwritten" :key="idx" class="report-item">
+              <span>{{ c.title }}</span>
+              <span class="item-cat">{{ c.category }} / {{ c.subcategory }}</span>
+            </div>
+          </div>
+        </div>
+        <div v-if="importReport.skipped.length" class="report-section">
+          <div class="report-section-head" @click="reportCollapsed.skipped = !reportCollapsed.skipped">
+            <span>跳過的卡片 ({{ importReport.skipped.length }})</span>
+            <span>{{ reportCollapsed.skipped ? '展開' : '收起' }}</span>
+          </div>
+          <div class="report-section-body" :class="{ collapsed: reportCollapsed.skipped }">
+            <div v-for="(c, idx) in importReport.skipped" :key="idx" class="report-item">
+              <span>{{ c.title }}</span>
+              <span class="item-cat">{{ c.category }} / {{ c.subcategory }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="report-actions">
+          <button class="btn-primary" @click="importReport = null">
+            完成
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 編輯 / 新增卡片 Modal -->
+    <div v-if="editingCard" class="modal-mask" @click.self="closeEdit">
+      <div class="edit-modal">
+        <div class="edit-modal-head">
+          <span>{{ editIsNew ? '新增卡片' : '編輯卡片' }}</span>
+          <button class="icon-btn" @click="closeEdit" aria-label="關閉">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="6" />
+            </svg>
+          </button>
+        </div>
+        <div class="edit-modal-body">
+
+          <!-- 類型 -->
+          <div class="edit-row" v-if="editIsNew">
+            <label>類型 <span class="required">*</span></label>
+            <div class="type-select-group">
+              <span v-for="t in ['code','lines','table','sections','note']" :key="t" class="type-option"
+                :class="['type-' + t, { active: editDraft.type === t }]" @click="setEditType(t)">{{ t }}</span>
+            </div>
+          </div>
+          <div class="edit-row" v-else>
+            <label>類型</label>
+            <span class="type-tag" :class="'type-' + editDraft.type">{{ editDraft.type }}</span>
+            <span class="edit-hint">（建立後不可更改）</span>
+          </div>
+
+          <!-- 主分類 -->
+          <div class="edit-row">
+            <label>主分類 <span class="required">*</span></label>
+            <select v-if="editIsNew" v-model="editDraft.category" @change="editDraft.subcategory = ''">
+              <option v-for="cat in CATEGORIES" :key="cat" :value="cat">{{ cat }}</option>
+            </select>
+            <span v-else class="edit-readonly">{{ editDraft.category }}</span>
+          </div>
+
+          <!-- 標題 -->
+          <div class="edit-row">
+            <label>標題 <span class="required">*</span></label>
+            <input type="text" v-model="editDraft.title" placeholder="卡片標題" class="full-input" />
+          </div>
+
+          <!-- 子分類 -->
+          <div class="edit-row">
+            <label>子分類</label>
+            <div class="sub-input-wrap">
+              <template v-if="!editSubNew && editDraft.subcategory !== '__new__'">
+                <select v-model="editDraft.subcategory"
+                  @change="editDraft.subcategory === '__new__' && (editSubNew = true)">
+                  <option value="">（不分子分類）</option>
+                  <option v-for="s in editSubcategories" :key="s" :value="s">{{ s }}</option>
+                  <option value="__new__">＋ 新增子分類...</option>
+                </select>
+              </template>
+              <template v-else>
+                <input type="text" v-model="editNewSubInput" placeholder="輸入新子分類名稱" class="sub-new-input" />
+                <button class="small-btn" @click="confirmNewSub">確定</button>
+                <button class="small-btn cancel" @click="cancelNewSub">取消</button>
+              </template>
+            </div>
+          </div>
+
+          <!-- 「語言」欄位因高亮 function 錯誤所以隱藏此欄位；language 仍保留為 metadata（新增時預設 none），但不在表單編輯 -->
+
+          <!-- 預覽行數 -->
+          <div class="edit-row">
+            <label>預覽行數</label>
+            <input type="number" v-model.number="editDraft.previewRows" min="1" max="30" class="num-input" />
+          </div>
+
+          <!-- 標籤 -->
+          <div class="edit-row">
+            <label>標籤</label>
+            <div class="tags-editor">
+              <span v-for="(tag, idx) in editDraft.tags" :key="idx" class="tag edit-tag">
+                {{ tag }}<span class="tag-x" @click="removeEditTag(idx)">×</span>
+              </span>
+              <input type="text" v-model="newTagInput" placeholder="輸入後 Enter 新增" class="tag-input"
+                @keydown.enter.prevent="addEditTag"
+                @keydown.backspace="newTagInput === '' ? removeEditTag(editDraft.tags.length - 1) : null" />
+            </div>
+          </div>
+
+          <!-- content: code -->
+          <div class="edit-row col" v-if="editDraft.type === 'code'">
+            <label>程式碼內容</label>
+            <textarea v-model="editDraft.content" class="code-textarea" rows="12" spellcheck="false"></textarea>
+          </div>
+
+          <!-- content: lines -->
+          <div class="edit-row col" v-if="editDraft.type === 'lines'">
+            <label>指令列表</label>
+            <div v-for="(line, idx) in editDraft.content" :key="idx" class="array-row">
+              <input type="text" v-model="editDraft.content[idx]" placeholder="指令或說明" class="flex-input" />
+              <button class="del-btn" @click="removeEditLine(idx)" title="刪除">×</button>
+            </div>
+            <button class="add-row-btn" @click="addEditLine">＋ 新增一行</button>
+          </div>
+
+          <!-- content: table -->
+          <div class="edit-row col" v-if="editDraft.type === 'table'">
+            <label>對照表</label>
+            <div class="table-editor-header">
+              <span>key（複製目標）</span><span>說明</span><span></span>
+            </div>
+            <div v-for="(row, idx) in editDraft.content" :key="idx" class="array-row">
+              <input type="text" v-model="editDraft.content[idx].key" placeholder="key" class="flex-input" />
+              <input type="text" v-model="editDraft.content[idx].desc" placeholder="說明" class="flex-input" />
+              <button class="del-btn" @click="removeEditTableRow(idx)" title="刪除">×</button>
+            </div>
+            <button class="add-row-btn" @click="addEditTableRow">＋ 新增一列</button>
+          </div>
+
+          <!-- content: sections -->
+          <div class="edit-row col" v-if="editDraft.type === 'sections'">
+            <label>區塊列表</label>
+            <div v-for="(sec, idx) in editDraft.content" :key="idx" class="section-editor-block">
+              <div class="section-editor-head">
+                <input type="text" v-model="editDraft.content[idx].title" placeholder="區塊標題" class="flex-input" />
+                <button class="del-btn" @click="removeEditSection(idx)" title="刪除">×</button>
+              </div>
+              <textarea v-model="editDraft.content[idx].content" rows="5" spellcheck="false"
+                placeholder="區塊內容（程式碼）"></textarea>
+            </div>
+            <button class="add-row-btn" @click="addEditSection">＋ 新增區塊</button>
+          </div>
+
+          <!-- content: note -->
+          <div class="edit-row col" v-if="editDraft.type === 'note'">
+            <label>要點列表</label>
+            <div v-for="(pt, idx) in editDraft.content.points" :key="idx" class="array-row">
+              <input type="text" v-model="editDraft.content.points[idx]" placeholder="要點" class="flex-input" />
+              <button class="del-btn" @click="removeEditPoint(idx)" title="刪除">×</button>
+            </div>
+            <button class="add-row-btn" @click="addEditPoint">＋ 新增要點</button>
+            <label style="margin-top:14px">警告提示（可選）</label>
+            <textarea v-model="editDraft.content.warning" rows="2" placeholder="留空則不顯示警告區塊"></textarea>
+          </div>
+
+        </div>
+        <div class="edit-modal-foot">
+          <button class="btn-cancel" @click="closeEdit">取消</button>
+          <button class="btn-primary" @click="saveEdit"
+            :disabled="!editDraft.title.trim() || (editIsNew && !editDraft.type)">
+            {{ editIsNew ? '新增卡片' : '儲存變更' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" :class="{ show: toastMsg }">{{ toastMsg }}</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="./script/config.js"></script>
+  <script src="./script/app.js"></script>
+</body>

@@ -1,0 +1,2465 @@
+{
+  "version": "1.0",
+  "exportedAt": "2026-05-28T03:13:31.280Z",
+  "cards": [
+    {
+      "id": "c983b221-daae-4afc-ba81-bdac931cce9d",
+      "category": "HTML",
+      "subcategory": "必備設定",
+      "title": "HTML 高度觀念",
+      "type": "note",
+      "tags": [
+        "高度",
+        "觀念"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "HTML 本身不負責高度 = 0",
+          "高度來自內容或 CSS",
+          "瀏覽器根據副檔名（.html, .jpg...）確認檔案類型",
+          "瀏覽器不會顯示 HTML 標籤，而是用它們決定如何顯示文件"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "e37f89af-25d5-478d-bd40-4e658ad6b58a",
+      "category": "HTML",
+      "subcategory": "網頁架構",
+      "title": "語意化標籤",
+      "type": "table",
+      "tags": [
+        "語意化",
+        "結構",
+        "SEO"
+      ],
+      "previewRows": 5,
+      "language": "html",
+      "content": [
+        {
+          "key": "<nav>",
+          "desc": "主選單、分類導航"
+        },
+        {
+          "key": "<header>",
+          "desc": "頁首、廣告大圖"
+        },
+        {
+          "key": "<main>",
+          "desc": "文章本體"
+        },
+        {
+          "key": "<section>",
+          "desc": "文章本體區塊"
+        },
+        {
+          "key": "<footer>",
+          "desc": "頁尾，版權、聯絡資訊"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "49024017-76da-41e8-a9ba-79c923c7e40d",
+      "category": "HTML",
+      "subcategory": "表單元件",
+      "title": "Form 表單元件",
+      "type": "table",
+      "tags": [
+        "表單",
+        "form",
+        "input",
+        "todo"
+      ],
+      "previewRows": 8,
+      "language": "html",
+      "content": [
+        {
+          "key": "<input type=\"text\">",
+          "desc": "文字輸入"
+        },
+        {
+          "key": "<input type=\"password\">",
+          "desc": "密碼欄位"
+        },
+        {
+          "key": "<input type=\"number\">",
+          "desc": "數字（可加 min/max）"
+        },
+        {
+          "key": "<input type=\"radio\">",
+          "desc": "單選（需 name 相同）"
+        },
+        {
+          "key": "<input type=\"checkbox\">",
+          "desc": "多選"
+        },
+        {
+          "key": "<input type=\"email\">",
+          "desc": "Email 格式驗證"
+        },
+        {
+          "key": "<input type=\"file\">",
+          "desc": "檔案上傳"
+        },
+        {
+          "key": "<input type=\"button\">",
+          "desc": "按鈕（reset/submit ⚠ 待確認）"
+        },
+        {
+          "key": "value=\"\"",
+          "desc": "輸入框預設值"
+        },
+        {
+          "key": "placeholder=\"\"",
+          "desc": "欄位提示字（請輸入...）"
+        },
+        {
+          "key": "required",
+          "desc": "必填欄位"
+        },
+        {
+          "key": "<label for=\"id\">",
+          "desc": "對應 id 提升無障礙"
+        },
+        {
+          "key": "<select> + <option>",
+          "desc": "下拉式選單"
+        },
+        {
+          "key": "option selected",
+          "desc": "預設顯示的選項"
+        },
+        {
+          "key": "option hidden",
+          "desc": "隱藏選項"
+        },
+        {
+          "key": "option disabled",
+          "desc": "禁止選擇的選項"
+        },
+        {
+          "key": "<button type=\"\">",
+          "desc": "按鈕 reset/submit（⚠ 待確認）"
+        },
+        {
+          "key": "<textarea>",
+          "desc": "多行文字輸入"
+        },
+        {
+          "key": "readonly",
+          "desc": "唯讀"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "2e35e559-8941-4995-b093-21e098f92b61",
+      "category": "HTML",
+      "subcategory": "媒體嵌入",
+      "title": "<img> 圖片",
+      "type": "table",
+      "tags": [
+        "圖片",
+        "img",
+        "無障礙"
+      ],
+      "previewRows": 5,
+      "language": "html",
+      "content": [
+        {
+          "key": "src",
+          "desc": "路徑位置"
+        },
+        {
+          "key": "alt",
+          "desc": "替代文字，無障礙使用"
+        },
+        {
+          "key": "width / height",
+          "desc": "⚠ 只控制寬或高，避免變形"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "33d60bcf-8f53-490d-bb97-b9fb31607bb8",
+      "category": "HTML",
+      "subcategory": "媒體嵌入",
+      "title": "<iframe> 嵌入",
+      "type": "note",
+      "tags": [
+        "iframe",
+        "嵌入"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "常用來嵌入地圖（Google Maps）",
+          "常用來嵌入影片（YouTube）",
+          "可從外部來源直接嵌入頁面"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "d6283c97-29cf-4a6a-b7bb-02b5eee9d432",
+      "category": "HTML",
+      "subcategory": "行內元素",
+      "title": "行內元素特性",
+      "type": "note",
+      "tags": [
+        "行內元素",
+        "inline",
+        "觀念"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "預設不換行，寬高不能改變",
+          "padding 雖會顯示，但「不佔據」空間",
+          "display: inline 時遵循「行內格式化上下文」",
+          "讓父層 div 被撐開的方法：方案一 display: inline-block（最常見）；方案二 父層設定 display: flex"
+        ],
+        "warning": "行內元素的 padding 在排版計算時不佔空間，容易造成跑版"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "f132ddf5-f784-4f53-95b1-8e9775af4b2c",
+      "category": "HTML",
+      "subcategory": "行內元素",
+      "title": "<span> 行內容器",
+      "type": "note",
+      "tags": [
+        "span",
+        "行內",
+        "todo"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "純行內容器，無語意",
+          "常用於文字片段套用樣式",
+          "⚠ 詳細用法待補"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "c52aa187-eb1f-4f71-b584-28dac7a9a57b",
+      "category": "HTML",
+      "subcategory": "行內元素",
+      "title": "<a> 超連結",
+      "type": "table",
+      "tags": [
+        "a",
+        "超連結",
+        "link",
+        "todo"
+      ],
+      "previewRows": 8,
+      "language": "html",
+      "content": [
+        {
+          "key": "href",
+          "desc": "連結路徑，可下載檔案或連到其他網頁"
+        },
+        {
+          "key": "target=\"_blank\"",
+          "desc": "在新分頁開啟"
+        },
+        {
+          "key": "target=\"_self\"",
+          "desc": "在相同視窗開啟（預設）"
+        },
+        {
+          "key": "⚠ 限制",
+          "desc": "<a> 裡面不能再包 <a>"
+        },
+        {
+          "key": "display: inline-block",
+          "desc": "解決行內元素造成的跑版"
+        },
+        {
+          "key": "a:link",
+          "desc": "超連結預設顏色"
+        },
+        {
+          "key": "a:visited",
+          "desc": "被拜訪過的顏色（紫色，⚠ 有限制樣式 - 待確認）"
+        },
+        {
+          "key": "a:hover",
+          "desc": "滑鼠移上時（⚠ 樣式待整理）"
+        },
+        {
+          "key": "a:active",
+          "desc": "點擊瞬間（⚠ 樣式待整理）"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "1db1b2dd-5ec6-4c39-bcce-0eefa4a69d12",
+      "category": "HTML",
+      "subcategory": "特殊標籤",
+      "title": "特殊標籤",
+      "type": "table",
+      "tags": [
+        "pre",
+        "hr",
+        "nbsp",
+        "特殊"
+      ],
+      "previewRows": 5,
+      "language": "html",
+      "content": [
+        {
+          "key": "<pre>",
+          "desc": "保留原始格式（空白、換行）"
+        },
+        {
+          "key": "<hr>",
+          "desc": "水平分隔線"
+        },
+        {
+          "key": "&nbsp;",
+          "desc": "不換行空白符號"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "742db431-1fb6-40b7-970a-1879ae571e26",
+      "category": "HTML",
+      "subcategory": "常用標籤",
+      "title": "常用結構標籤",
+      "type": "table",
+      "tags": [
+        "div",
+        "p",
+        "h1",
+        "ul",
+        "li",
+        "常用"
+      ],
+      "previewRows": 5,
+      "language": "html",
+      "content": [
+        {
+          "key": "<div>",
+          "desc": "區塊容器（block）"
+        },
+        {
+          "key": "<p>",
+          "desc": "段落"
+        },
+        {
+          "key": "<h1> ~ <h6>",
+          "desc": "標題層級 1~6"
+        },
+        {
+          "key": "<ul> + <li>",
+          "desc": "無序清單，可用 list-style 變更樣式"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "c87c3519-e82f-41c3-9333-59baea8bdd0f",
+      "category": "CSS",
+      "subcategory": "易忘設定",
+      "title": "CSS 初始化歸 0",
+      "type": "code",
+      "tags": [
+        "reset",
+        "初始化",
+        "歸0"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": "* ,\n::before,\n::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  margin: 0;\n}",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "133131b7-2729-4a5e-86f7-a3ba4eccad44",
+      "category": "CSS",
+      "subcategory": "易忘設定",
+      "title": "box-sizing: border-box",
+      "type": "note",
+      "tags": [
+        "box-sizing",
+        "border-box",
+        "盒模型"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "box-sizing: border-box 會把 padding 和 border 算進元素尺寸內",
+          "避免 padding/border 把元素撐大造成跑版",
+          "通常搭配 * 選擇器一次套用到全部元素",
+          "可搭配 All-flex.html 練習"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "2075d07b-e0c7-4ba0-a71a-69287832f00c",
+      "category": "CSS",
+      "subcategory": "選擇器",
+      "title": "CSS 選擇器分類",
+      "type": "table",
+      "tags": [
+        "selector",
+        "選擇器",
+        "基礎"
+      ],
+      "previewRows": 7,
+      "language": "css",
+      "content": [
+        {
+          "key": "p, #box, .item",
+          "desc": "簡單：標籤 / id / class"
+        },
+        {
+          "key": "div > p",
+          "desc": "組合：父親的第一個 p"
+        },
+        {
+          "key": "div p",
+          "desc": "組合：後代（空格）"
+        },
+        {
+          "key": "a + b",
+          "desc": "組合：一個兄弟（緊鄰）"
+        },
+        {
+          "key": "a ~ b",
+          "desc": "組合：後面所有兄弟"
+        },
+        {
+          "key": ".logo:hover",
+          "desc": "偽類：滑鼠移上"
+        },
+        {
+          "key": ".box::before",
+          "desc": "偽元素：::before / ::after"
+        },
+        {
+          "key": "*",
+          "desc": "通用：所有元素"
+        },
+        {
+          "key": "#text-1, #text-2",
+          "desc": "群組：簡化重複樣式"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "0377f726-4930-4c88-8630-128c717c1dbd",
+      "category": "CSS",
+      "subcategory": "選擇器",
+      "title": "權重優先順序",
+      "type": "note",
+      "tags": [
+        "權重",
+        "優先權",
+        "specificity"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "由高到低：!important > inline-style > ID > Class / 偽類 > Element > *",
+          ".class > span → class 權重較高",
+          "Selector Specificity: (a, b, c) 三段分數",
+          "DevTools 可查看每條規則的權重分數"
+        ],
+        "warning": "盡量不要用 !important，會破壞權重系統難維護"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "0cff3bd7-427d-4028-ab76-573cfe11362f",
+      "category": "CSS",
+      "subcategory": "文字",
+      "title": "文字相關屬性",
+      "type": "table",
+      "tags": [
+        "font",
+        "text",
+        "文字"
+      ],
+      "previewRows": 8,
+      "language": "css",
+      "content": [
+        {
+          "key": "font-size",
+          "desc": "字體大小"
+        },
+        {
+          "key": "font-family",
+          "desc": "字型"
+        },
+        {
+          "key": "font-weight",
+          "desc": "粗細"
+        },
+        {
+          "key": "font-style",
+          "desc": "斜體 italic"
+        },
+        {
+          "key": "line-height",
+          "desc": "行高（建議不加單位，用倍數）"
+        },
+        {
+          "key": "letter-spacing",
+          "desc": "字元間距"
+        },
+        {
+          "key": "text-align",
+          "desc": "對齊（justify = 分散對齊）"
+        },
+        {
+          "key": "text-indent",
+          "desc": "段落縮排"
+        },
+        {
+          "key": "text-decoration",
+          "desc": "底線 / 刪除線（todo: 完整選項待補）"
+        },
+        {
+          "key": "::first-letter",
+          "desc": "偽元素：第一個字"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "04a6d281-c29a-4ebd-8f90-6a2b90b0a7d7",
+      "category": "CSS",
+      "subcategory": "邊框與間距",
+      "title": "border 邊框",
+      "type": "table",
+      "tags": [
+        "border",
+        "邊框"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": [
+        {
+          "key": "border: 1px solid #000",
+          "desc": "簡寫：寬度 樣式 顏色"
+        },
+        {
+          "key": "border-radius",
+          "desc": "圓角"
+        },
+        {
+          "key": "border-bottom-left-radius",
+          "desc": "單一角落圓角（左下）"
+        },
+        {
+          "key": "border-top / right / bottom / left",
+          "desc": "單邊邊框"
+        },
+        {
+          "key": "inset",
+          "desc": "立體內凹效果"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "b988f58d-c78e-4ddb-be8e-66e7d4ae8d12",
+      "category": "CSS",
+      "subcategory": "邊框與間距",
+      "title": "padding 內距",
+      "type": "note",
+      "tags": [
+        "padding",
+        "內距"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "縮寫順序：上-右-下-左 / 上-右左-下 / 上下-右左",
+          "推動方向 → 把內容往右、下推",
+          "會影響元素尺寸（除非設了 box-sizing: border-box）",
+          "行內元素的 padding 雖會顯示，但不佔排版空間"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "20bb0e41-8867-46ba-86b1-32854102b982",
+      "category": "CSS",
+      "subcategory": "邊框與間距",
+      "title": "margin 外距",
+      "type": "note",
+      "tags": [
+        "margin",
+        "外距",
+        "重疊"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "縮寫順序同 padding：上-右-下-左",
+          "通常統一往右、下推（避免重疊問題）",
+          "垂直方向的 margin 會發生「重疊」（取最大值，不是相加）",
+          "margin: auto 可水平置中（需有指定寬度）"
+        ],
+        "warning": "搭配 float 時 margin: auto 無法依父層寬度置中，因為 float 已脫離正常文流"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "b7af9b13-d468-427a-b069-d1b15fd52319",
+      "category": "CSS",
+      "subcategory": "單位",
+      "title": "CSS 單位",
+      "type": "table",
+      "tags": [
+        "px",
+        "em",
+        "rem",
+        "vw",
+        "vh",
+        "單位"
+      ],
+      "previewRows": 6,
+      "language": "css",
+      "content": [
+        {
+          "key": "px",
+          "desc": "絕對單位"
+        },
+        {
+          "key": "em",
+          "desc": "相對單位，依「父層」字體大小"
+        },
+        {
+          "key": "rem",
+          "desc": "相對單位，依「根元素 html」字體大小"
+        },
+        {
+          "key": "vw",
+          "desc": "視窗可視寬度的百分比"
+        },
+        {
+          "key": "vh",
+          "desc": "視窗可視高度的百分比"
+        },
+        {
+          "key": "%",
+          "desc": "百分比，依父層"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "4fdcab3f-9168-4415-9860-9269511a05d9",
+      "category": "CSS",
+      "subcategory": "排版 - Flex",
+      "title": "display: flex 彈性容器",
+      "type": "code",
+      "tags": [
+        "flex",
+        "彈性",
+        "排版"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": ".container {\n  display: flex;\n  justify-content: center;  /* 主軸對齊 */\n  align-items: center;      /* 交叉軸對齊 */\n  gap: 16px;                /* 子元素間距 */\n  flex-wrap: wrap;          /* 換行 */\n}",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "9748cf64-23a0-4e7f-943e-4dce80fd4b5c",
+      "category": "CSS",
+      "subcategory": "排版 - Flex",
+      "title": "Flex 對齊屬性",
+      "type": "table",
+      "tags": [
+        "flex",
+        "對齊",
+        "justify",
+        "align"
+      ],
+      "previewRows": 8,
+      "language": "css",
+      "content": [
+        {
+          "key": "justify-content",
+          "desc": "主軸對齊：center / space-between / space-around"
+        },
+        {
+          "key": "align-items",
+          "desc": "交叉軸對齊：center / flex-start / flex-end"
+        },
+        {
+          "key": "flex-direction",
+          "desc": "row / column / row-reverse"
+        },
+        {
+          "key": "flex-wrap",
+          "desc": "wrap 換行 / nowrap 不換行"
+        },
+        {
+          "key": "gap",
+          "desc": "子元素間距"
+        },
+        {
+          "key": "flex-grow",
+          "desc": "剩餘空間分配比例"
+        },
+        {
+          "key": "flex-shrink",
+          "desc": "壓縮比例"
+        },
+        {
+          "key": "flex-basis",
+          "desc": "起始大小"
+        },
+        {
+          "key": "order",
+          "desc": "改變物件順序（RWD 極常用）"
+        },
+        {
+          "key": "flex: 1 1 auto",
+          "desc": "簡寫：grow shrink basis"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "82c330dd-c14f-4551-8fdc-db526573daf8",
+      "category": "CSS",
+      "subcategory": "排版 - Flex",
+      "title": "Flex 練習工具",
+      "type": "note",
+      "tags": [
+        "flex",
+        "練習",
+        "工具"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "Flexbox Froggy（必練）：互動式遊戲學 flex",
+          "推薦先把 froggy 全破完，再來實作排版",
+          "之後排版以 flex 為主，逐步取代 float"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "bcf88b9e-a784-4812-b68a-46b8d1000836",
+      "category": "CSS",
+      "subcategory": "排版 - Position",
+      "title": "position 定位",
+      "type": "table",
+      "tags": [
+        "position",
+        "定位",
+        "absolute",
+        "fixed"
+      ],
+      "previewRows": 7,
+      "language": "css",
+      "content": [
+        {
+          "key": "static",
+          "desc": "預設"
+        },
+        {
+          "key": "relative",
+          "desc": "相對定位"
+        },
+        {
+          "key": "absolute",
+          "desc": "絕對定位，依最近的 relative 父層，可用 top/left/right/bottom 移動"
+        },
+        {
+          "key": "fixed",
+          "desc": "固定在畫面上（不隨滾動），形成獨立圖層"
+        },
+        {
+          "key": "sticky",
+          "desc": "黏性定位（滾動到指定位置才固定）"
+        },
+        {
+          "key": "top / right / bottom / left",
+          "desc": "移動位置（初始化要歸 0）"
+        },
+        {
+          "key": "z-index",
+          "desc": "決定物件層級"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-28T01:59:03.446Z"
+    },
+    {
+      "id": "4204cb66-00ec-4630-bc5a-b49c12a995b4",
+      "category": "CSS",
+      "subcategory": "排版 - Position",
+      "title": "transform 置中技巧",
+      "type": "code",
+      "tags": [
+        "置中",
+        "transform",
+        "translate",
+        "position"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": ".center {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n}\n/* 原理：移動「自身的一半」 */",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "25cd0403-6ccd-48da-a5a4-05778e787a87",
+      "category": "CSS",
+      "subcategory": "排版 - Float",
+      "title": "float 浮動元素",
+      "type": "note",
+      "tags": [
+        "float",
+        "clear",
+        "浮動"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "預設大小 = 內容大小",
+          "float 會讓元素脫離正常文流",
+          "脫離文流後 margin: auto 無法依父層置中",
+          "搭配 clear 清除浮動：clear: both / left / right"
+        ],
+        "warning": "現代排版建議改用 flex 取代 float，float 主要保留給文繞圖場景"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "a58ad655-2a9c-4e7b-be89-9e9eaf73de97",
+      "category": "CSS",
+      "subcategory": "特效",
+      "title": "transform 變形",
+      "type": "table",
+      "tags": [
+        "transform",
+        "translate",
+        "scale",
+        "rotate"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": [
+        {
+          "key": "translate(x, y)",
+          "desc": "位移"
+        },
+        {
+          "key": "translateX(-50%)",
+          "desc": "X 軸位移"
+        },
+        {
+          "key": "scale(2)",
+          "desc": "縮放 2 倍"
+        },
+        {
+          "key": "rotate(180deg)",
+          "desc": "旋轉"
+        },
+        {
+          "key": "scale(2) rotate(180deg)",
+          "desc": "組合使用（空格隔開）"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "a6a479f9-5610-46a2-bdcc-a4b2700192e2",
+      "category": "CSS",
+      "subcategory": "特效",
+      "title": "@keyframes 關鍵影格",
+      "type": "code",
+      "tags": [
+        "keyframes",
+        "animation",
+        "動畫"
+      ],
+      "previewRows": 8,
+      "language": "css",
+      "content": "@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n.element {\n  animation: slideIn 0.5s ease;\n}",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "b475324f-8138-4b99-815f-8449679607bc",
+      "category": "CSS",
+      "subcategory": "背景",
+      "title": "background 屬性",
+      "type": "table",
+      "tags": [
+        "background",
+        "背景",
+        "漸層"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": [
+        {
+          "key": "background-color",
+          "desc": "底色"
+        },
+        {
+          "key": "background-image: url()",
+          "desc": "背景圖片"
+        },
+        {
+          "key": "background-image: linear-gradient(...)",
+          "desc": "漸層背景"
+        },
+        {
+          "key": "background-repeat",
+          "desc": "是否重複"
+        },
+        {
+          "key": "background-size: cover",
+          "desc": "填滿容器（可能裁切）"
+        },
+        {
+          "key": "background-size: contain",
+          "desc": "完整顯示（可能留白）"
+        },
+        {
+          "key": "background-position",
+          "desc": "控制圖片位置 (x, y)"
+        },
+        {
+          "key": "background-attachment: fixed",
+          "desc": "背景固定，可做視差滾動"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "0149e808-327f-422b-815d-6adb762b58e8",
+      "category": "CSS",
+      "subcategory": "RWD",
+      "title": "@media 媒體查詢",
+      "type": "code",
+      "tags": [
+        "media",
+        "RWD",
+        "響應式",
+        "斷點"
+      ],
+      "previewRows": 8,
+      "language": "css",
+      "content": "/* 斷點 sm (576px)、md (768px)、lg (992px)、xl (1200px)、xxl (1400px) 五個預設斷點 */\n@media (max-width: 768px) {\n  .container {\n    flex-direction: column;\n  }\n}\n\n@media (min-width: 1380px) {\n  .container {\n    max-width: 1280px;\n  }\n}",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-28T02:02:06.707Z"
+    },
+    {
+      "id": "7d6dd0c1-435d-44c5-a342-c1996d4a8660",
+      "category": "CSS",
+      "subcategory": "陰影",
+      "title": "shadow 陰影",
+      "type": "table",
+      "tags": [
+        "shadow",
+        "陰影",
+        "text-shadow",
+        "box-shadow"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": [
+        {
+          "key": "text-shadow",
+          "desc": "文字陰影"
+        },
+        {
+          "key": "text-shadow 多層",
+          "desc": "可做中空字效果"
+        },
+        {
+          "key": "box-shadow",
+          "desc": "物件陰影"
+        },
+        {
+          "key": "box-shadow: x y blur spread color",
+          "desc": "完整參數順序"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "c76d7fd8-381e-4f8d-bdf0-bdbf42c8a4ba",
+      "category": "CSS",
+      "subcategory": "計算",
+      "title": "calc() 計算",
+      "type": "code",
+      "tags": [
+        "calc",
+        "計算",
+        "動態"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": ".col {\n  width: calc(100% - 20px);\n  height: calc(100vh - 60px);\n}\n/* ⚠ 過度使用會增加計算負擔 */",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "e28c44cd-4919-4225-8750-2413fc2a3e8d",
+      "category": "CSS",
+      "subcategory": "SASS",
+      "title": "SASS / SCSS 基礎",
+      "type": "note",
+      "tags": [
+        "sass",
+        "scss",
+        "預處理器"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "預處理器概念：先寫 SCSS → 編譯成 CSS → 引用",
+          "& 符號代表「父選擇器」",
+          "結構化撰寫，提高維護性",
+          "可巢狀寫法，跟著 HTML 結構走",
+          "VSCode 擴充套件：Live Sass Compiler"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "9b219948-e31e-4b46-9a77-e73393dd31ca",
+      "category": "CSS",
+      "subcategory": "其他",
+      "title": "cursor 游標",
+      "type": "table",
+      "tags": [
+        "cursor",
+        "游標"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": [
+        {
+          "key": "cursor: pointer",
+          "desc": "手指（可點選元素）"
+        },
+        {
+          "key": "cursor: default",
+          "desc": "預設箭頭"
+        },
+        {
+          "key": "cursor: text",
+          "desc": "文字輸入"
+        },
+        {
+          "key": "cursor: not-allowed",
+          "desc": "禁止"
+        },
+        {
+          "key": "cursor: grab / grabbing",
+          "desc": "拖曳"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "0d23d0ff-ee48-47a6-bcaa-6c1f703ee48b",
+      "category": "CSS",
+      "subcategory": "其他",
+      "title": "opacity 透明度",
+      "type": "table",
+      "tags": [
+        "opacity",
+        "透明度"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": [
+        {
+          "key": "opacity: 0",
+          "desc": "完全透明（仍佔位）"
+        },
+        {
+          "key": "opacity: 0.5",
+          "desc": "半透明"
+        },
+        {
+          "key": "opacity: 1",
+          "desc": "完全不透明（預設）"
+        },
+        {
+          "key": "visibility: hidden",
+          "desc": "隱藏但仍佔位（取代）"
+        },
+        {
+          "key": "display: none",
+          "desc": "完全移除（不佔位）"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "8ab4b4dd-a422-4ab4-8c31-13c012ba3014",
+      "category": "CSS",
+      "subcategory": "其他",
+      "title": "z-index 層級",
+      "type": "note",
+      "tags": [
+        "z-index",
+        "層級"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "數字越大越在上層",
+          "必須搭配 position（relative / absolute / fixed）才會生效",
+          "建立 stacking context 的元素會獨立計算層級"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "1e8463ae-f4f8-4022-8320-7db2132c0877",
+      "category": "CSS",
+      "subcategory": "易忘設定",
+      "title": ":active 偽類",
+      "type": "note",
+      "tags": [
+        ":active",
+        "偽類",
+        "todo"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          ":active = 元素被點擊的瞬間",
+          "常搭配 :hover 使用",
+          "⚠ 偽類辭典待整理（你 PDF 提到要找）"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "469891ba-061f-4bef-9b32-29e1e8c02af1",
+      "category": "CSS應用題",
+      "subcategory": "置中",
+      "title": "transform 垂直水平置中",
+      "type": "code",
+      "tags": [
+        "置中",
+        "transform",
+        "translate",
+        "重點"
+      ],
+      "previewRows": 5,
+      "language": "css",
+      "content": ".center {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n}\n/* 移動「自身的一半」 */",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "a04fb6bb-4f31-4249-90ff-0af1f2d15125",
+      "category": "CSS應用題",
+      "subcategory": "置中",
+      "title": "padding + height 置中",
+      "type": "note",
+      "tags": [
+        "置中",
+        "padding"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "在父層做垂直置中",
+          "計算方式：(可視區域 - 物件高度) ÷ 2",
+          "需搭配 height 使用",
+          "比 transform 簡單但較不彈性"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "335d8b2b-a992-4efc-985c-794616a46780",
+      "category": "CSS應用題",
+      "subcategory": "Nav 導覽列",
+      "title": "Nav 固定導覽列",
+      "type": "code",
+      "tags": [
+        "nav",
+        "fixed",
+        "導覽列"
+      ],
+      "previewRows": 7,
+      "language": "css",
+      "content": "nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 100;\n  /* nav 內容對齊：容器寬高固定 → 扣除 padding → 對齊內容 */\n}",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "d73cd64f-bf10-40e8-9e6e-5c21c44206b1",
+      "category": "CSS應用題",
+      "subcategory": "回頂部",
+      "title": "go-top 回到頂部按鈕",
+      "type": "code",
+      "tags": [
+        "go-top",
+        "回頂部",
+        "fixed"
+      ],
+      "previewRows": 8,
+      "language": "css",
+      "content": ".go-top {\n  width: 80px;\n  height: 80px;\n  text-align: center;\n  border-radius: 50%;\n  position: fixed;\n  bottom: 50px;\n  right: 10%;\n  background-image: url(./img/go-top.png);\n  background-size: cover;\n  transform: translateX(-40px);\n  transition: 0.5s;\n}\n.go-top:hover {\n  background-image: url(./img/go-top-hover.png);\n  background-color: #5e9fa4;\n}",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "d3fefd9e-5ddd-4792-ba10-0aa3c97f17d2",
+      "category": "CSS應用題",
+      "subcategory": "視差滾動",
+      "title": "parallax 視差滾動",
+      "type": "note",
+      "tags": [
+        "parallax",
+        "視差",
+        "scroll"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "核心屬性：background-attachment: fixed",
+          "本質是利用 viewport + scroll：背景固定在視窗上",
+          "三張圖在 viewport 的座標上是「重疊」的",
+          "每張背景圖附著在各自的 .banner 上，.banner 像遮罩窗口",
+          "只有當該 .banner 進入 viewport，那張背景圖才看得見",
+          "進階：可結合 background + mask + scroll"
+        ],
+        "warning": "視差滾動本質是 viewport + scroll，理解這層才不會被屬性卡住"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "a372bf56-f692-449b-a9ea-a562081bf63a",
+      "category": "CSS應用題",
+      "subcategory": "常見 bug",
+      "title": "padding 失效 / 行內元素跑版",
+      "type": "note",
+      "tags": [
+        "bug",
+        "padding",
+        "inline"
+      ],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "行內元素的 padding 不佔排版空間",
+          "解法：display: inline-block",
+          "或父層改用 display: flex"
+        ],
+        "warning": "行內元素的 padding 雖會顯示，但「不佔據」空間，容易造成跑版"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "b4eaf5ae-41b8-4e1a-9a5a-4ca32daa24f5",
+      "category": "CSS應用題",
+      "subcategory": "常見 bug",
+      "title": "卡片內容沒滿版",
+      "type": "note",
+      "tags": [
+        "bug",
+        "flex",
+        "flex-1"
+      ],
+      "previewRows": 4,
+      "language": "none",
+      "content": {
+        "points": [
+          "原因：容器是依據內容撐高高度",
+          "解法：flex: 1 1 auto",
+          "把容器改為不因內容撐高"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "18a8fa3a-a35e-413f-8ec5-01a2b14b10b7",
+      "category": "CSS應用題",
+      "subcategory": "常見 bug",
+      "title": "flex + gap 卡片沒並排",
+      "type": "note",
+      "tags": [
+        "bug",
+        "flex",
+        "gap",
+        "box-sizing"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "原因：gap 不會被 box-sizing: border-box 壓縮",
+          "需要自行處理 width 計算",
+          "或改用 calc(100% / n - gap*相關)"
+        ],
+        "warning": "gap 在 flex 容器內不會被 box-sizing 自動處理"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "899f5cf3-0d5c-433f-8818-67507b27683f",
+      "category": "CSS應用題",
+      "subcategory": "常見 bug",
+      "title": ":focus outline 失效",
+      "type": "note",
+      "tags": [
+        "bug",
+        "focus",
+        "tabindex",
+        "todo"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "原因：忘記加 tabindex=\"0\"",
+          "解法：在元素加 tabindex=\"0\" 讓它可被 focus",
+          "⚠ 完整 outline 樣式設定待整理"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "abcb1d56-fc51-46aa-a6cb-b3eb208eb904",
+      "category": "CSS應用題",
+      "subcategory": "常見 bug",
+      "title": "label for 失效",
+      "type": "note",
+      "tags": [
+        "bug",
+        "label",
+        "for"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "for 屬性「只能用在 <label>」",
+          "是 <label> 的專用屬性",
+          "for 對應的值要等於目標 input 的 id"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "53e1ec64-1a72-47e8-a0a6-6cc80eaa657e",
+      "category": "CSS應用題",
+      "subcategory": "常見 bug",
+      "title": "卡片保持高度一致",
+      "type": "note",
+      "tags": [
+        "bug",
+        "高度一致",
+        "flex",
+        "grid"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "Flex 容器內子元素預設拉伸對齊（align-items: stretch）",
+          "Grid 容器內也會自動拉到同高",
+          "Float 排版需手動 min-height 或 JS 計算"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "da8050d0-31b9-4e72-967a-94fd10d50039",
+      "category": "CSS應用題",
+      "subcategory": "常見 bug",
+      "title": "超連結虛線邊框",
+      "type": "note",
+      "tags": [
+        "bug",
+        "outline",
+        "a"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "某些瀏覽器 a 標籤被點擊後會出現 outline 虛線",
+          "用 outline: none 移除（注意無障礙）",
+          "建議改為自訂 :focus 樣式取代"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "97a3f5d5-9436-41f0-b0e3-4800d6f93212",
+      "category": "JavaScript",
+      "subcategory": "基礎",
+      "title": "typeof 型別判斷",
+      "type": "table",
+      "tags": [
+        "typeof",
+        "型別",
+        "type"
+      ],
+      "previewRows": 8,
+      "language": "js",
+      "content": [
+        {
+          "key": "typeof 1",
+          "desc": "'number'"
+        },
+        {
+          "key": "typeof 'abc'",
+          "desc": "'string'"
+        },
+        {
+          "key": "typeof true",
+          "desc": "'boolean'"
+        },
+        {
+          "key": "typeof undefined",
+          "desc": "'undefined'"
+        },
+        {
+          "key": "typeof null",
+          "desc": "'object' （JS 歷史 bug）"
+        },
+        {
+          "key": "typeof []",
+          "desc": "'object' （陣列也是物件）"
+        },
+        {
+          "key": "typeof {}",
+          "desc": "'object'"
+        },
+        {
+          "key": "typeof function(){}",
+          "desc": "'function'"
+        },
+        {
+          "key": "Array.isArray([])",
+          "desc": "判斷是否為陣列（取代 typeof）"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "73ce5c94-5d4b-4bbf-a122-e48c3c47d44f",
+      "category": "JavaScript",
+      "subcategory": "陣列方法",
+      "title": "map 映射",
+      "type": "code",
+      "tags": [
+        "map",
+        "陣列",
+        "高頻"
+      ],
+      "previewRows": 5,
+      "language": "js",
+      "content": "const arr = [1, 2, 3, 4]\nconst doubled = arr.map(n => n * 2)\n// [2, 4, 6, 8]\n\n// 物件陣列\nconst names = users.map(u => u.name)",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "e67690ba-76a4-4277-92e6-260e5c5968b3",
+      "category": "JavaScript",
+      "subcategory": "陣列方法",
+      "title": "filter 過濾",
+      "type": "code",
+      "tags": [
+        "filter",
+        "陣列",
+        "高頻"
+      ],
+      "previewRows": 5,
+      "language": "js",
+      "content": "const arr = [1, 2, 3, 4]\nconst over2 = arr.filter(n => n > 2)\n// [3, 4]\n\n// 物件陣列\nconst adults = users.filter(u => u.age >= 18)",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "8c2d29bb-c8d8-4de2-8832-249f13c39d09",
+      "category": "JavaScript",
+      "subcategory": "陣列方法",
+      "title": "reduce 累加 / 累計",
+      "type": "code",
+      "tags": [
+        "reduce",
+        "陣列",
+        "累加"
+      ],
+      "previewRows": 5,
+      "language": "js",
+      "content": "const arr = [1, 2, 3, 4]\n\n// 累加\nconst sum = arr.reduce((acc, n) => acc + n, 0)\n// 10\n\n// 物件累計\nconst total = items.reduce((acc, item) => acc + item.price, 0)",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "4c389afc-f78f-41fd-aaee-1f9be127a27a",
+      "category": "JavaScript",
+      "subcategory": "事件",
+      "title": "addEventListener",
+      "type": "code",
+      "tags": [
+        "事件",
+        "event",
+        "listener"
+      ],
+      "previewRows": 5,
+      "language": "js",
+      "content": "btn.addEventListener('click', (e) => {\n  console.log(e.target)\n})\n\n// 移除\nbtn.removeEventListener('click', handler)",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "4432344f-e265-4d84-8d89-1c848c7a16ae",
+      "category": "JavaScript",
+      "subcategory": "事件",
+      "title": "stopPropagation 阻止事件冒泡",
+      "type": "code",
+      "tags": [
+        "stopPropagation",
+        "事件冒泡",
+        "事件"
+      ],
+      "previewRows": 5,
+      "language": "js",
+      "content": "btn.addEventListener('click', (e) => {\n  e.stopPropagation()\n  // 阻止事件向父層傳遞\n})\n\n// 阻止預設行為\ne.preventDefault()",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "66018f36-e603-4c10-9858-780ea58ba5ee",
+      "category": "Vue3",
+      "subcategory": "啟動",
+      "title": "Vue 3 初始模板",
+      "type": "code",
+      "tags": [
+        "vue3",
+        "cdn",
+        "初始",
+        "高頻"
+      ],
+      "previewRows": 8,
+      "language": "html",
+      "content": "<script setup>\n\n</script>\n\n<template>\n    <div>\n        \n    </div>\n</template>\n\n<style scoped>\n\n</style>",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-28T02:08:26.234Z"
+    },
+    {
+      "id": "764f1d66-45a3-4756-8457-e77f42b9c2f5",
+      "category": "Vue3",
+      "subcategory": "啟動",
+      "title": "建立 Vue 專案（支援中文）",
+      "type": "lines",
+      "tags": [
+        "vue3",
+        "create",
+        "scaffold"
+      ],
+      "previewRows": 3,
+      "language": "bash",
+      "content": [
+        "LANG=zh_TW.UTF-8 npm create vue@latest",
+        "cd my-project",
+        "npm install",
+        "npm run dev"
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "9de87adf-f518-437b-be94-ed0c06497713",
+      "category": "Vue3",
+      "subcategory": "Composition API",
+      "title": "defineProps",
+      "type": "code",
+      "tags": [
+        "props",
+        "defineProps"
+      ],
+      "previewRows": 5,
+      "language": "js",
+      "content": "// <script setup>\nconst props = defineProps({\n  height: { type: Number, default: 0 },\n  extension: { type: String, required: true }\n})",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "a5d09c25-7e2b-493e-8b87-e17c771da699",
+      "category": "Vue3",
+      "subcategory": "Composition API",
+      "title": "defineEmits",
+      "type": "code",
+      "tags": [
+        "emits",
+        "defineEmits"
+      ],
+      "previewRows": 5,
+      "language": "js",
+      "content": "const emit = defineEmits(['update:open', 'changeVideoUrl'])\n\n// 觸發\nemit('changeVideoUrl', url)\n\n// v-model 用 update:xxx\nemit('update:open', true)",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "61210d18-2033-46bd-8618-af2e9741219d",
+      "category": "工具",
+      "subcategory": "nvm",
+      "title": "nvm 版本切換",
+      "type": "lines",
+      "tags": [
+        "nvm",
+        "node",
+        "版本",
+        "高頻"
+      ],
+      "previewRows": 5,
+      "language": "bash",
+      "content": [
+        "nvm install 22.22.3",
+        "nvm use 22.22.3",
+        "nvm use 20.19.2",
+        "node -v",
+        "npm -v",
+        "nvm list",
+        "clear"
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "31096a75-5367-47aa-95bb-892451e6d723",
+      "category": "工具",
+      "subcategory": "Node",
+      "title": "Node 常用指令",
+      "type": "lines",
+      "tags": [
+        "node",
+        "npm",
+        "pnpm"
+      ],
+      "previewRows": 5,
+      "language": "bash",
+      "content": [
+        "node -v",
+        "npm -v",
+        "pnpm up caniuse-lite",
+        "nvm use v16.4.0",
+        "nvm install v16.4.0"
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "60c874d3-0fc5-4995-a75c-d47726ddf9bf",
+      "category": "工具",
+      "subcategory": "VSCode",
+      "title": "VSCode 快捷鍵",
+      "type": "table",
+      "tags": [
+        "vscode",
+        "快捷鍵",
+        "高頻"
+      ],
+      "previewRows": 10,
+      "language": "bash",
+      "content": [
+        {
+          "key": "Ctrl + /",
+          "desc": "註解"
+        },
+        {
+          "key": "Ctrl + ?",
+          "desc": "註解（mac）"
+        },
+        {
+          "key": "Ctrl + P",
+          "desc": "最近開過的檔案列表"
+        },
+        {
+          "key": "Ctrl + Shift + K",
+          "desc": "刪除整行"
+        },
+        {
+          "key": "Ctrl + Shift + \\",
+          "desc": "括號開始 / 結尾跳轉"
+        },
+        {
+          "key": "Ctrl + K, Ctrl + [",
+          "desc": "摺疊所有子區域"
+        },
+        {
+          "key": "Ctrl + K, Ctrl + ]",
+          "desc": "展開所有子區域"
+        },
+        {
+          "key": "Ctrl + K, Ctrl + 0",
+          "desc": "摺疊所有區域"
+        },
+        {
+          "key": "Ctrl + K, Ctrl + J",
+          "desc": "展開所有區域"
+        },
+        {
+          "key": "Shift + Alt + A",
+          "desc": "區塊註解 /* */"
+        },
+        {
+          "key": "F2",
+          "desc": "修改檔名"
+        },
+        {
+          "key": "Ctrl + D",
+          "desc": "多選相同字"
+        },
+        {
+          "key": "Ctrl + F",
+          "desc": "快速尋找"
+        },
+        {
+          "key": "Shift + Option + Cmd",
+          "desc": "指定多選方向（mac）"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "e3a1dc9d-4222-44e6-8706-efc0ed876752",
+      "category": "工具",
+      "subcategory": "VSCode",
+      "title": "Emmet 縮寫快速產生",
+      "type": "table",
+      "tags": [
+        "emmet",
+        "vscode",
+        "縮寫"
+      ],
+      "previewRows": 8,
+      "language": "html",
+      "content": [
+        {
+          "key": "! + Tab",
+          "desc": "產生 HTML 完整結構"
+        },
+        {
+          "key": "#box-a*3",
+          "desc": "<div id=\"box-a\"> × 3"
+        },
+        {
+          "key": "#all>#top+#mid+#btm",
+          "desc": "巢狀 + 同層兄弟"
+        },
+        {
+          "key": "#all>#top+(#mid>#mid-left+#mid-right)+#btm",
+          "desc": "完整網頁骨架"
+        },
+        {
+          "key": "lorem3",
+          "desc": "產生 3 個假文字"
+        },
+        {
+          "key": "lorem*3",
+          "desc": "產生 3 段 lorem"
+        },
+        {
+          "key": "lorem3*5",
+          "desc": "3 字假文 × 5 段"
+        },
+        {
+          "key": "w100 (style)",
+          "desc": "width: 100px"
+        },
+        {
+          "key": "bw (style)",
+          "desc": "border-width"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "7ad73801-37ec-4fb2-93c3-c0186d45d503",
+      "category": "工具",
+      "subcategory": "Chrome",
+      "title": "Chrome 開發工具",
+      "type": "table",
+      "tags": [
+        "chrome",
+        "devtools"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": [
+        {
+          "key": "Chrome DevTools",
+          "desc": "結構查看、CSS 除錯"
+        },
+        {
+          "key": "F12 / Ctrl+Shift+I",
+          "desc": "開啟 DevTools"
+        },
+        {
+          "key": "SVG Export",
+          "desc": "Chrome 擴充：匯出網站 SVG 圖片"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "80334ae9-e2e4-4914-8d98-7c12ef1a421f",
+      "category": "工具",
+      "subcategory": "Git",
+      "title": "Git commit 前綴",
+      "type": "table",
+      "tags": [
+        "git",
+        "commit",
+        "convention",
+        "高頻"
+      ],
+      "previewRows": 8,
+      "language": "bash",
+      "content": [
+        {
+          "key": "feat",
+          "desc": "增加新功能"
+        },
+        {
+          "key": "fix",
+          "desc": "修復問題 / BUG"
+        },
+        {
+          "key": "style",
+          "desc": "程式碼風格相關（不影響運行）"
+        },
+        {
+          "key": "perf",
+          "desc": "優化 / 效能提升"
+        },
+        {
+          "key": "refactor",
+          "desc": "重構"
+        },
+        {
+          "key": "revert",
+          "desc": "撤銷修改"
+        },
+        {
+          "key": "test",
+          "desc": "測試相關"
+        },
+        {
+          "key": "docs",
+          "desc": "文件 / 註釋"
+        },
+        {
+          "key": "chore",
+          "desc": "依賴更新 / 鷹架配置修改"
+        },
+        {
+          "key": "workflow",
+          "desc": "工作流程改進"
+        },
+        {
+          "key": "ci",
+          "desc": "持續集成"
+        },
+        {
+          "key": "types",
+          "desc": "類型定義檔更改"
+        },
+        {
+          "key": "wip",
+          "desc": "開發中（work in progress）"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "a47d6c51-511c-43ee-9787-04691b199b82",
+      "category": "觀念",
+      "subcategory": "排版觀念",
+      "title": "fixed 定位特性",
+      "type": "note",
+      "tags": [
+        "fixed",
+        "position",
+        "排版"
+      ],
+      "previewRows": 4,
+      "language": "none",
+      "content": {
+        "points": [
+          "fixed 會脫離正常文流",
+          "固定於視窗（不隨滾動）",
+          "浮動在一般物件上",
+          "形成獨立圖層",
+          "高度預設為內容高度，需自行控制"
+        ],
+        "warning": "fixed 元素脫離文流後不再佔位，後續元素會「擠上來」"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "266405f8-6d40-48c8-81b0-6b2e8c018373",
+      "category": "觀念",
+      "subcategory": "排版觀念",
+      "title": "寬度包含 padding 及 margin",
+      "type": "note",
+      "tags": [
+        "寬度",
+        "padding",
+        "margin",
+        "box-model"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "元素總寬度 = width + padding + border + margin",
+          "除非設了 box-sizing: border-box，才會把 padding/border 算進 width 內",
+          "新手最常踩的坑：padding 把卡片撐大造成跑版"
+        ],
+        "warning": "養成 * { box-sizing: border-box } 的習慣"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "89d0a440-6de5-42e4-9783-09012298f24b",
+      "category": "觀念",
+      "subcategory": "排版觀念",
+      "title": "vw / vh ≠ %",
+      "type": "note",
+      "tags": [
+        "vw",
+        "vh",
+        "單位",
+        "高頻"
+      ],
+      "previewRows": 4,
+      "language": "none",
+      "content": {
+        "points": [
+          "vw / vh 依「視窗」可視範圍",
+          "% 依「父層」尺寸",
+          "父層 80% + 子層 100vw → 會跑版（vw 不看父層）",
+          "macOS 捲軸是浮動覆蓋，不佔頁面寬度",
+          "Windows 捲軸固定佔位，會佔 15~17px 寬度"
+        ],
+        "warning": "body 用 100vw 在 Windows 會溢出 15~17px"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "597e3563-132f-424e-92d7-31d48bfca2d2",
+      "category": "觀念",
+      "subcategory": "排版觀念",
+      "title": "垂直置中有多種解法",
+      "type": "note",
+      "tags": [
+        "置中",
+        "垂直",
+        "解法"
+      ],
+      "previewRows": 4,
+      "language": "none",
+      "content": {
+        "points": [
+          "方法 1：transform: translate(-50%, -50%) + position",
+          "方法 2：padding + height（在父層計算）",
+          "方法 3：display: flex + align-items: center",
+          "方法 4：display: grid + place-items: center",
+          "不同情境選不同解法，不要只記一種"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "d61d96f8-fd6f-465b-b6df-ee5ee7048ad8",
+      "category": "觀念",
+      "subcategory": "排版觀念",
+      "title": "transform 是「移動自己」",
+      "type": "note",
+      "tags": [
+        "transform",
+        "translate",
+        "重點"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "transform 作用在自己身上，不是父層",
+          "translate(-50%, -50%) 是「移動自身寬高的一半」",
+          "屬於座標轉換（工程數學概念）"
+        ],
+        "warning": "新手常誤以為 transform 會影響父層或子層，其實只動自己"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "12dbb76f-d943-407d-8064-934937de7821",
+      "category": "觀念",
+      "subcategory": "排版觀念",
+      "title": "position 會改變元素排版行為",
+      "type": "note",
+      "tags": [
+        "position",
+        "排版"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "position 與 margin 通常擇一使用（觀念）",
+          "absolute / fixed 會脫離文流，後續元素會擠上來",
+          "relative 不脫離文流，但可以用 top/left/right/bottom 微調",
+          "初始化 top/left 要歸 0"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "8f095edf-66b6-41cb-8dc0-0f16436dfc8a",
+      "category": "觀念",
+      "subcategory": "互動觀念",
+      "title": "transition 控制變化過程",
+      "type": "note",
+      "tags": [
+        "transition",
+        "動畫",
+        "互動"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "transition 不直接製造變化，而是「控制變化的過程」",
+          "搭配 :hover、:active、JS class 切換才會觸發",
+          "結構：觸發（hover/click）→ 動作（transform）→ 過程（transition）",
+          "建立完整互動效果的三段式思維"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "2f31fd06-8d64-4f44-89c7-2d9a5197ac71",
+      "category": "觀念",
+      "subcategory": "互動觀念",
+      "title": "hover ≠ active 時機不同",
+      "type": "note",
+      "tags": [
+        "hover",
+        "active",
+        "互動"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          ":hover = 滑鼠移上時（停留中）",
+          ":active = 元素被點擊的瞬間（按下還沒放）",
+          ":focus = 取得焦點時（鍵盤 tab 切換或點擊輸入框）",
+          "三者觸發時機完全不同，常用組合：a:hover + a:active"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "7b90a95e-ff31-4f76-9715-529634665985",
+      "category": "觀念",
+      "subcategory": "HTML 限制",
+      "title": "a 標籤不能巢狀",
+      "type": "note",
+      "tags": [
+        "a",
+        "html",
+        "限制"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "<a> 裡面不能再包另一個 <a>",
+          "HTML 規範禁止，瀏覽器會自動拆開",
+          "若要把整塊區域變連結，用 <a> 包含 <div>，div 設為 block 樣式"
+        ],
+        "warning": "巢狀的 a 標籤會被瀏覽器當作錯誤拆開，造成不可預期的渲染"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "0494aa6e-347d-4c8b-bf13-5482e8451c14",
+      "category": "觀念",
+      "subcategory": "效能觀念",
+      "title": "calc 不宜濫用",
+      "type": "note",
+      "tags": [
+        "calc",
+        "效能"
+      ],
+      "previewRows": 3,
+      "language": "none",
+      "content": {
+        "points": [
+          "calc() 雖方便，但每次渲染都要重新計算",
+          "使用過多會增加渲染負擔",
+          "能用固定值就用固定值",
+          "動態計算的場景（如 RWD）才用 calc"
+        ]
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-25T00:00:00Z",
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "d3be2138-14b9-4739-8a58-d31aa94be8bd",
+      "category": "操作說明",
+      "subcategory": "",
+      "title": "範例-\"code\" 卡片(可以直接複製”程式碼”使用)",
+      "type": "code",
+      "tags": [],
+      "previewRows": 5,
+      "language": "none",
+      "content": "<script setup>\n\n</script>\n\n<template>\n    <div>\n        \n    </div>\n</template>\n\n<style scoped>\n\n</style>",
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-28T02:44:21.879Z",
+      "updatedAt": "2026-05-28T03:06:35.505Z"
+    },
+    {
+      "id": "f68c501e-eabc-4cd8-91ba-422a8454b65f",
+      "category": "操作說明",
+      "subcategory": "",
+      "title": "範例-\"lines\" 卡片(可以直接複製”指令”使用)",
+      "type": "lines",
+      "tags": [],
+      "previewRows": 5,
+      "language": "none",
+      "content": [
+        "LANG=zh_TW.UTF-8 npm create vue@latest",
+        "npm install",
+        "npm run dev"
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-28T02:47:28.275Z",
+      "updatedAt": "2026-05-28T02:51:04.811Z"
+    },
+    {
+      "id": "dcc6e27d-f085-496e-81a1-c7b586868b50",
+      "category": "操作說明",
+      "subcategory": "",
+      "title": "範例-\"table\" 卡片(對照文字與code)",
+      "type": "table",
+      "tags": [],
+      "previewRows": 5,
+      "language": "none",
+      "content": [
+        {
+          "key": "<input type=\"text\">",
+          "desc": "文字輸入"
+        },
+        {
+          "key": "<input type=\"password\">",
+          "desc": "密碼欄位"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-28T02:53:14.654Z",
+      "updatedAt": "2026-05-28T02:55:01.413Z"
+    },
+    {
+      "id": "0c08b166-457b-49ed-8d84-e8a5c4338b31",
+      "category": "操作說明",
+      "subcategory": "",
+      "title": "範例-\"sections\" 卡片(可加入同種類的項目)",
+      "type": "sections",
+      "tags": [],
+      "previewRows": 5,
+      "language": "none",
+      "content": [
+        {
+          "title": "方法 1：transform: translate(-50%, -50%) + position",
+          "content": "/* 原理：移動「自身的一半」 */\n.center {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n}"
+        },
+        {
+          "title": "方法 2：padding + height（在父層計算）",
+          "content": "在父層做垂直置中\n計算方式：(可視區域 - 物件高度) ÷ 2\n需搭配 height 使用\n比 transform 簡單但較不彈性"
+        },
+        {
+          "title": "方法 3：display: flex + align-items: center",
+          "content": ".box {\n  width: 300px;\n  height: 300px;\n\n  /* 置中 */\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}"
+        },
+        {
+          "title": "方法 4：display: grid + place-items: center",
+          "content": "body {\n  display: flex;\n  place-items: center;    /* 水平與垂直置中的快捷屬性 */\n  min-height: 100vh;     /* 確保 body 佔滿整個視窗高度 */\n  margin: 0;             /* 清除預設邊界 */\n}"
+        }
+      ],
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-28T02:55:59.488Z",
+      "updatedAt": "2026-05-28T03:07:07.831Z"
+    },
+    {
+      "id": "ff9a4a1c-fcfd-4ba1-9c0d-0bea8ba4000d",
+      "category": "操作說明",
+      "subcategory": "",
+      "title": "範例-“note” 卡片(記錄或重點提示使用)",
+      "type": "note",
+      "tags": [],
+      "previewRows": 5,
+      "language": "none",
+      "content": {
+        "points": [
+          "float 浮動元素",
+          "預設大小 = 內容大小",
+          "float 會讓元素脫離正常文流",
+          "脫離文流後 margin: auto 無法依父層置中",
+          "搭配 clear 清除浮動：clear: both / left / right"
+        ],
+        "warning": "現代排版建議改用 flex 取代 float，float 主要保留給文繞圖場景"
+      },
+      "pinned": false,
+      "useCount": 0,
+      "createdAt": "2026-05-28T03:07:17.843Z",
+      "updatedAt": "2026-05-28T03:09:28.310Z"
+    }
+  ]
+}
