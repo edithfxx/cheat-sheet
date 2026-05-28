@@ -86,7 +86,7 @@
 
 ```
 myChatSheet/
-├─ index.html            # 主頁面（HTML 結構 + 載入三個 script）
+├─ index.html            # 主頁面（HTML 結構 + 依序載入 Vue CDN、config.js、app.js）
 ├─ css/
 │   └─ style.css         # 全部樣式
 ├─ script/
