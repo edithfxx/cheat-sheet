@@ -4,6 +4,11 @@
 
 純前端、免安裝、免打包 —— 一個資料夾用 Live Server 打開就能跑。
 
+## 🔗 連結
+
+- **線上 Demo（免下載，直接試用）**：https://edithfxx.github.io/cheat-sheet/
+- **GitHub 專案**：https://github.com/edithfxx/cheat-sheet
+
 ---
 
 ## ✨ 特色
