@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# 個人資料備份（匯出時自動產生的時間戳備份）
+data/update/*.backup-*.json
+
+# 開發逐字稿（保留於本機，不公開）
+docs/conversations/

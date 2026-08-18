@@ -5,7 +5,7 @@
 純前端、免安裝、免打包 —— 一個資料夾用 Live Server 打開即可執行。
 
 ## 💡 使用引導（請依需求選擇）
-- **我只想查閱同學整理好的筆記** 👉 請直接點擊 [線上 Demo 連結](https://edithfxx.github.io/cheat-sheet/)（免下載，隨開即用）。
+- **我只想查閱現成的筆記** 👉 請直接點擊 [線上 Demo 連結](https://edithfxx.github.io/cheat-sheet/)（免下載，隨開即用）。
 - **我想新增、修改成我自己的個人筆記** 👉 請依循下方步驟下載專案至電腦執行。
 
 ---
@@ -14,6 +14,21 @@
 
 - **線上 Demo（免下載直接用）**：https://edithfxx.github.io/cheat-sheet/
 - **GitHub 專案原始碼**：https://github.com/edithfxx/cheat-sheet
+
+---
+
+## 📐 開發文件（給技術讀者）
+
+這個專案的開發過程有完整記錄，包含架構決策的取捨與 AI 協作的實際方法：
+
+| 文件 | 內容 |
+|---|---|
+| [架構決策紀錄](docs/DECISIONS.md) | 9 條關鍵決策：當時的選項、為什麼這樣選、**代價是什麼** |
+| [AI 協作開發](docs/AI_COLLABORATION.md) | 怎麼讓 AI 產出我要的東西、怎麼驗收、**哪些建議我否決了** |
+| [資料模型](docs/DATA_SCHEMA.md) | 卡片 schema、5 種型別的多型契約、匯入驗證規則 |
+| [CLAUDE.md](CLAUDE.md) | 給 AI 的專案脈絡規格，每次對話的起點 |
+
+> 只想使用工具的話，這一節可以略過，直接看下方的操作說明。
 
 ---
 
@@ -96,16 +111,18 @@
 ## 📁 專案檔案結構
 
 ```
-myChatSheet/
+cheat-sheet/
 ├─ index.html         # 主頁面入口（包含 HTML 結構、Vue CDN 及相關腳本載入）
+├─ CLAUDE.md          # 給 AI 的專案脈絡規格
 ├─ css/
 │   └─ style.css      # 專案完整樣式表
 ├─ script/
 │   ├─ app.js         # 主要 Vue 邏輯與資料驅動控制
 │   └─ config.js      # 全域設定檔（分類定義、初始資料路徑等）
-└─ data/
-└─ update/
-└─ data.json  # 初始/備份的卡片資料來源
+├─ data/
+│   └─ update/
+│       └─ data.json  # 初始/備份的卡片資料來源
+└─ docs/              # 開發文件（架構決策、資料模型、AI 協作紀錄）
 ```
 
 ---
